@@ -200,8 +200,6 @@ class AbnormalSoarConnectorAsync:
             producer = asyncio.create_task(self.generate_resource_ids(session, Resources.cases, cases_date_filter, intermediate_queue, FilterParam.customerVisibleTime,context, producer_post_process_func))
             consumers = [asyncio.create_task(self.process_resource_ids(session, Resources.cases, cases_date_filter, intermediate_queue, output_queue)) for _ in range(self.num_consumers)]
             await asyncio.gather(producer)
-            result = producer.result()
-            logging.info(f'{result}: these are the case ids!!')
             await intermediate_queue.join()  # Implicitly awaits consumers, too
             for c in consumers:
                 c.cancel()

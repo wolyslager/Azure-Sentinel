@@ -37,7 +37,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     if should_reset_date_params():
         context.signal_entity(datetimeEntityId, "reset")
 
-    stored_threats_datetime = "2023-12-11T21:45:00Z"
+    stored_threats_datetime = "2023-12-11T21:45:59Z"
     logging.info(f"Retrieved stored threats datetime: {stored_threats_datetime}")
     
     stored_cases_datetime = "2023-12-11T21:45:00Z"

@@ -68,6 +68,7 @@ class AbnormalSoarConnectorAsync:
         }
 
     def _get_all_ids_url(self, resource, query_dict):
+        logging.info(f"This is the query dict for {resource} --- {query_dict}")
         return f"{self.BASEURL}/{resource.name}?{urlencode(query_dict)}"
 
     def _get_object_url(self, resource_name, resource_id):
@@ -194,6 +195,7 @@ class AbnormalSoarConnectorAsync:
 
 
     async def get_all_cases(self, cases_date_filter, output_queue, context, caching_func=None):
+        logging.info("Executing get_all_cases")
         intermediate_queue = asyncio.Queue()
         async with aiohttp.ClientSession() as session:
             producer_post_process_func = lambda x: caching_func(self._extract_case_ids(x)) if caching_func else self._extract_case_ids(x)

@@ -40,7 +40,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     stored_threats_datetime = "2024-01-29T21:45:00Z"
     logging.info(f"Retrieved stored threats datetime: {stored_threats_datetime}")
     
-    stored_cases_datetime = "2024-01-29T21:46:00Z"
+    stored_cases_datetime = "2024-01-28T21:45:00Z"
     logging.info(f"Retrieved stored cases datetime: {stored_cases_datetime}")
 
     current_datetime = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")

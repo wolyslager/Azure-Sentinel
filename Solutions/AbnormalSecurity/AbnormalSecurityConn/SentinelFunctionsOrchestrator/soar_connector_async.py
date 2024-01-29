@@ -68,7 +68,7 @@ class AbnormalSoarConnectorAsync:
         }
 
     def _get_all_ids_url(self, resource, query_dict):
-        logging.info(f"This is the query dict for {resource} --- {query_dict}")
+        logging.info(f"This is the query dict for {resource} --- {query_dict} - and this is the urlencoderesult -- {urlencode(query_dict)} and this is the full url --- {self.BASEURL}/{resource.name}?{urlencode(query_dict)}")
         return f"{self.BASEURL}/{resource.name}?{urlencode(query_dict)}"
 
     def _get_object_url(self, resource_name, resource_id):

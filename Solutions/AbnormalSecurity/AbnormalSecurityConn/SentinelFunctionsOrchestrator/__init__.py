@@ -37,15 +37,15 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     if should_reset_date_params():
         context.signal_entity(datetimeEntityId, "reset")
 
-    stored_threats_datetime = "2023-12-11T21:45:59Z"
+    stored_threats_datetime = "2024-01-29T21:45:00Z"
     logging.info(f"Retrieved stored threats datetime: {stored_threats_datetime}")
     
-    stored_cases_datetime = "2023-12-11T21:45:00Z"
+    stored_cases_datetime = "2024-01-29T21:46:00Z"
     logging.info(f"Retrieved stored cases datetime: {stored_cases_datetime}")
 
     current_datetime = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
     
-    asyncio.run(transfer_abnormal_data_to_sentinel(stored_threats_datetime, stored_cases_datetime, "2023-12-11T21:46:00Z", context))
+    asyncio.run(transfer_abnormal_data_to_sentinel(stored_threats_datetime, stored_cases_datetime, "2024-01-29T21:46:00Z", context))
     logging.info("Orchestrator execution finished") 
     
 def should_reset_date_params():

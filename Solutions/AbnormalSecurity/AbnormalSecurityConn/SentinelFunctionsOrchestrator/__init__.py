@@ -45,7 +45,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
     current_datetime = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
     
-    asyncio.run(transfer_abnormal_data_to_sentinel("2024-01-28T21:45:00Z", "2024-01-28T21:45:00Z ", "2024-01-29T16:35:00Z", context))
+    asyncio.run(transfer_abnormal_data_to_sentinel("2024-01-28T21:45:00Z", "2024-01-28T21:45:00Z", "2024-01-29T16:35:00Z", context))
     logging.info("Orchestrator execution finished") 
     
 def should_reset_date_params():
